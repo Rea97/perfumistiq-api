@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :lists
   resources :perfumes
   devise_for :users, path: '', path_names: {
     sign_in: 'login',
