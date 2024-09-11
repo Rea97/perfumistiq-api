@@ -77,4 +77,7 @@ Rails.application.configure do
       system("bundle exec rubocop -A --fail-level=E #{parsable_files.shelljoin}", exception: true)
     end
   end
+
+  # Custom configs
+  config.jwt_secret_key = ENV.fetch('DEVISE_JWT_SECRET_KEY')
 end
