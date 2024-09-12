@@ -5,13 +5,12 @@ module Users
     include RackSessionsFix
 
     def respond_with(current_user, _opts = {})
-      render json: {
-        data: {
-          user: current_user,
-          # return token in the body instead of response header but it's not recommended
-          token: request.env['warden-jwt_auth.token']
-        }
-      }, status: :ok
+      render json: UserBlueprint.render(
+        current_user,
+        root: :data,
+        # return token in the body instead of response header but it's not recommended
+        meta: { token: request.env['warden-jwt_auth.token'] }
+      ), status: :ok
     end
 
     def respond_to_on_destroy

@@ -69,4 +69,15 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = true
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # Auto correct RuboCop offenses after rails files are generated.
+  config.generators.after_generate do |files|
+    parsable_files = files.filter { |file| file.end_with?('.rb') }
+    unless parsable_files.empty?
+      system("bundle exec rubocop -A --fail-level=E #{parsable_files.shelljoin}", exception: true)
+    end
+  end
+
+  # Custom configs
+  config.jwt_secret_key = ENV.fetch('DEVISE_JWT_SECRET_KEY')
 end

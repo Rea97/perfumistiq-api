@@ -1,4 +1,5 @@
 require:
+  - rubocop-factory_bot
   - rubocop-rails
   - rubocop-rspec
   - rubocop-rspec_rails
@@ -9,6 +10,7 @@ AllCops:
     - config/**/*
     - bin/**/*
     - vendor/**/*
+    - db/schema.rb
 
 Style/Documentation:
   Enabled: false

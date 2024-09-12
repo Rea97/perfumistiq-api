@@ -9,3 +9,26 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+User.find_or_create_by!(email: 'oziel@test.com') do |u|
+  u.password = 'Secret123'
+end
+
+perfumes = [
+  { name: 'Chanel No. 5', designer_house: 'Chanel', type_of: :eau_de_parfum },
+  { name: 'Dior Sauvage', designer_house: 'Dior', type_of: :eau_de_toilette },
+  { name: 'Gucci Guilty', designer_house: 'Gucci', type_of: :eau_de_parfum },
+  { name: 'Yves Saint Laurent Black Opium', designer_house: 'Yves Saint Laurent', type_of: :eau_de_parfum },
+  { name: 'Yves Saint Laurent Y', designer_house: 'Yves Saint Laurent', type_of: :eau_de_parfum },
+  { name: 'Tom Ford Black Orchid', designer_house: 'Tom Ford', type_of: :eau_de_parfum },
+  { name: 'Jo Malone London Wood Sage & Sea Salt', designer_house: 'Jo Malone London', type_of: :eau_de_cologne },
+  { name: 'Marc Jacobs Daisy', designer_house: 'Marc Jacobs', type_of: :eau_de_toilette },
+  { name: 'Versace Bright Crystal', designer_house: 'Versace', type_of: :eau_de_toilette },
+  { name: 'Calvin Klein Eternity', designer_house: 'Calvin Klein', type_of: :eau_de_parfum },
+  { name: 'Burberry Brit', designer_house: 'Burberry', type_of: :eau_de_toilette }
+]
+perfumes.each do |perfume|
+  Perfume.find_or_create_by!(perfume)
+end
+
+Rails.logger.debug 'Seeds created successfully!'

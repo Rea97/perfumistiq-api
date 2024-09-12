@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :lists
+  resources :perfumes, only: %i[index show]
+
   devise_for :users, path: '', path_names: {
     sign_in: 'login',
     sign_out: 'logout',
@@ -7,6 +10,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }, defaults: { format: :json }
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
