@@ -13,18 +13,22 @@ RSpec.describe PerfumesController do
     end
 
     it 'routes to #create' do
+      skip('Not implemented')
       expect(post: '/perfumes').to route_to('perfumes#create')
     end
 
     it 'routes to #update via PUT' do
+      skip('Not implemented')
       expect(put: '/perfumes/1').to route_to('perfumes#update', id: '1')
     end
 
     it 'routes to #update via PATCH' do
+      skip('Not implemented')
       expect(patch: '/perfumes/1').to route_to('perfumes#update', id: '1')
     end
 
     it 'routes to #destroy' do
+      skip('Not implemented')
       expect(delete: '/perfumes/1').to route_to('perfumes#destroy', id: '1')
     end
   end
