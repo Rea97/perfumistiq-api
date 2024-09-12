@@ -1,18 +1,19 @@
 # frozen_string_literal: true
 
 class PerfumesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_perfume, only: %i[show update destroy]
 
   # GET /perfumes
   def index
     @perfumes = Perfume.all
 
-    render json: @perfumes
+    render json: PerfumeBlueprint.render(@perfumes, root:)
   end
 
   # GET /perfumes/1
   def show
-    render json: @perfume
+    render json: PerfumeBlueprint.render(@perfume, root:)
   end
 
   # POST /perfumes
@@ -20,7 +21,7 @@ class PerfumesController < ApplicationController
     @perfume = Perfume.new(perfume_params)
 
     if @perfume.save
-      render json: @perfume, status: :created, location: @perfume
+      render json: PerfumeBlueprint.render(@perfume, root:), status: :created, location: @perfume
     else
       render json: @perfume.errors, status: :unprocessable_entity
     end
@@ -29,7 +30,7 @@ class PerfumesController < ApplicationController
   # PATCH/PUT /perfumes/1
   def update
     if @perfume.update(perfume_params)
-      render json: @perfume
+      render json: PerfumeBlueprint.render(@perfume, root:)
     else
       render json: @perfume.errors, status: :unprocessable_entity
     end

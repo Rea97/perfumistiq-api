@@ -8,10 +8,7 @@ module Users
 
     def respond_with(current_user, _opts = {})
       if resource.persisted?
-        render json: {
-          status: { code: 200, message: 'Signed up successfully.' },
-          data: current_user
-        }
+        render json: UserBlueprint.render(current_user, root: :data)
       else
         render json: {
           errors: current_user.errors.full_messages
