@@ -31,7 +31,10 @@ class ListsController < ApplicationController
 
   # PATCH/PUT /lists/1
   def update
-    if @list.update(list_params)
+    @list.assign_attributes(list_params.except(:perfumes_ids))
+    @list.perfumes = Perfume.where(id: list_params[:perfumes_ids])
+
+    if @list.save
       render json: ListBlueprint.render(@list, root:)
     else
       render json: @list.errors, status: :unprocessable_entity
