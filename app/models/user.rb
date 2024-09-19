@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :lists, dependent: :destroy
   has_many :shots, dependent: :destroy
   has_many :compliments, dependent: :destroy
+  has_many :complains, dependent: :destroy
 end

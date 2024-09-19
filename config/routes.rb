@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :complains
   resources :compliments
   resources :shots, except: :update
   resources :lists
