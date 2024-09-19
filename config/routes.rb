@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :compliments
   resources :shots, except: :update
   resources :lists
   resources :perfumes, only: %i[index show]
