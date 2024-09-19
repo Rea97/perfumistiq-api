@@ -51,6 +51,6 @@ class ComplimentsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def compliment_params
-    params.require(:compliment).permit(:user_id, :perfume_id, :comment)
+    params.require(:compliment).permit(:perfume_id, :comment)
   end
 end
