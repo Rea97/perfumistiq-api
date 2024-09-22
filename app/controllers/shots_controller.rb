@@ -6,7 +6,7 @@ class ShotsController < ApplicationController
 
   # GET /shots
   def index
-    @shots = Shot.all
+    @shots = current_user.shots
 
     render json: ShotBlueprint.render(@shots, view: :extended, root:)
   end
