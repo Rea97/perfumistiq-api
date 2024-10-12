@@ -7,6 +7,8 @@ module Users
     private
 
     def respond_with(current_user, _opts = {})
+      UserBaseListsGenerator.new(current_user).run
+
       if resource.persisted?
         render json: UserBlueprint.render(current_user, root: :data)
       else
