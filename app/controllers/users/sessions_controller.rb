@@ -5,6 +5,8 @@ module Users
     include RackSessionsFix
 
     def respond_with(current_user, _opts = {})
+      UserBaseListsGenerator.new(current_user).run
+
       render json: UserBlueprint.render(
         current_user,
         root: :data,
