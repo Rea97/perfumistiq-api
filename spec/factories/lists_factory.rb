@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :list do
-    name { 'MyString' }
+    type_of { 'wishlist' }
     user { nil }
   end
 end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :complains
   resources :compliments
   resources :shots, except: :update
-  resources :lists
+  resources :lists, except: [:create]
   resources :perfumes, only: %i[index show]
 
   devise_for :users, path: '', path_names: {

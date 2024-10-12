@@ -9,20 +9,13 @@ class UserBaseListsGenerator
 
   def run
     base_lists.each do |list|
-      user.lists.create!(list)
+      user.lists.create!(type_of: list)
     end
   end
 
   private
 
   def base_lists
-    [
-      { name: 'Lo tengo' },
-      { name: 'Lo tuve' },
-      { name: 'Wish list' },
-      { name: 'Watch list' },
-      { name: 'Lo probé' },
-      { name: 'Decants' }
-    ]
+    %w[wishlist i_have i_had watchlist tested decants]
   end
 end

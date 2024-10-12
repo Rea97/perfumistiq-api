@@ -17,6 +17,7 @@ class ListsController < ApplicationController
   end
 
   # POST /lists
+  # route skipped because we dont want to allow users to create lists for now
   def create
     @list = List.new(list_params.except(:perfumes_ids))
     @list.user = current_user
@@ -58,7 +59,6 @@ class ListsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def list_params
     params.require(:list).permit(
-      :name,
       perfumes_ids: []
     )
   end
