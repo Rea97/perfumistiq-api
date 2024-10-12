@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   resources :complains
   resources :compliments
   resources :shots, except: :update
-  resources :lists
+  resources :lists, except: [:create]
   resources :perfumes, only: %i[index show]
+  get 'my_perfumes' => 'my_perfumes#index'
 
   devise_for :users, path: '', path_names: {
     sign_in: 'login',

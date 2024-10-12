@@ -10,10 +10,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.find_or_create_by!(email: 'oziel@test.com') do |u|
-  u.password = 'Secret123'
-end
-
 perfumes = [
   { name: 'Chanel No. 5', designer_house: 'Chanel', type_of: :eau_de_parfum },
   { name: 'Dior Sauvage', designer_house: 'Dior', type_of: :eau_de_toilette },
@@ -31,4 +27,6 @@ perfumes.each do |perfume|
   Perfume.find_or_create_by!(perfume)
 end
 
-Rails.logger.debug 'Seeds created successfully!'
+# rubocop:disable Rails/Output
+puts 'Seeds created successfully!'
+# rubocop:enable Rails/Output

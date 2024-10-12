@@ -13,8 +13,8 @@ RSpec.describe UserBaseListsGenerator do
 
     it 'creates lists with correct names' do
       service.run
-      expect(user.lists.pluck(:name))
-        .to contain_exactly('Lo tengo', 'Lo tuve', 'Wish list', 'Watch list', 'Lo probé', 'Decants')
+      expect(user.lists.pluck(:type_of))
+        .to contain_exactly('wishlist', 'i_have', 'i_had', 'watchlist', 'tested', 'decants')
     end
   end
 

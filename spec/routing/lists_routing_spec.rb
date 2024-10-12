@@ -13,6 +13,7 @@ RSpec.describe ListsController do
     end
 
     it 'routes to #create' do
+      skip('route skipped because we dont want to allow users to create lists for now')
       expect(post: '/lists').to route_to('lists#create')
     end
 
